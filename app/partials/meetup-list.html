@@ -1,11 +1,11 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-controller="meetupList">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h1 class="page-header">Your Meetups</h1>
   <ul class="meetups">
     <li ng-repeat="meetup in meetupList | orderBy: 'name'" class="thumbnail meetup-listing">
-      <div ng-if="meetup.group_photo.thumb_link" class="meetup-photo"><img src="{{meetup.group_photo.thumb_link}}" /></div>
-      <div ng-if="!meetup.group_photo.thumb_link" class="meetup-photo"><img src="http://photos4.meetupstatic.com/img/noPhoto_80.png" /></div>
+      <div ng-if="meetup.group_photo.thumb_link" class="meetup-photo"><img ng-src="{{meetup.group_photo.thumb_link}}" /></div>
+      <div ng-if="!meetup.group_photo.thumb_link" class="meetup-photo"><img ng-src="http://photos4.meetupstatic.com/img/noPhoto_80.png" /></div>
       <div class="meetup-details">
-        <a href="#/meetups/{{meetup.urlname}}" class="thumb">
+        <a href="#/meetups/{{meetup.id}}" class="thumb">
           <div class="nametag-photo-name">
             <h3 class="meetup-name">{{meetup.name}}</h3>
           </div>
