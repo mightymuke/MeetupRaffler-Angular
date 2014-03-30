@@ -165,3 +165,28 @@ div.meetup-details {
 h3.meetup-name {
 	margin-top: 10px;
 }
+
+.ng-cloak,
+.nav > li.ng-cloak {
+  display: none;
+}
+
+div.member-photo {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin: auto;
+}
+
+li.member-listing {
+  width: 110px;
+  height: 110px;
+  float: left;
+  margin: 10px;
+  text-align: center;
+}
+
+.member-meetup-name h3 {
+  margin-top: 8px;
+  margin-right: 5px;
+}
