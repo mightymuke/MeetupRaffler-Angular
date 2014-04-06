@@ -2,19 +2,21 @@
 
 // Controller
 
-meetupRafflerControllers.controller('meetupList', ['$scope', 'meetupListData', 'authService',
-	function($scope, meetupListData, authService) {
+meetupRafflerControllers.controller('meetups', ['$scope', 'meetupsData', 'authService',
+	function($scope, meetupsData, authService) {
 
 		if (!authService.isLoggedIn()) {
 
 		}
-		var meetupList = meetupListData.getMeetupList({
+		
+		var meetups = meetupsData.getmeetups({
 			memberId: '69467752',
 			access_token: authService.accessToken()
 		});
-		meetupList.$promise.then(
+
+		meetups.$promise.then(
 			function(event) {
-				$scope.meetupList = event.results;
+				$scope.meetups = event.results;
 			},
 			function(response) {
 				console.log(response);
@@ -25,7 +27,7 @@ meetupRafflerControllers.controller('meetupList', ['$scope', 'meetupListData', '
 
 // Service
 
-meetupRafflerServices.factory('meetupListData', ['$resource',
+meetupRafflerServices.factory('meetupsData', ['$resource',
 	function($resource) {
 		var resource = $resource('https://api.meetup.com/2/groups?member_id=:memberId&access_token=:access_token',
 			{
@@ -37,12 +39,12 @@ meetupRafflerServices.factory('meetupListData', ['$resource',
         		}
 			});
 		return {
-			getMeetupList: function(options) {
-				var meetupList = resource.get({
+			getmeetups: function(options) {
+				var meetups = resource.get({
 					memberId: options.memberId,
 					access_token: options.access_token
 				});
-				return meetupList;
+				return meetups;
 			},
 			query: {
 				method: 'GET',

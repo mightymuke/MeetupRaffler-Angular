@@ -1,7 +1,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h1 class="page-header">Your Meetups</h1>
   <ul class="meetups">
-    <li ng-repeat="meetup in meetupList | orderBy: 'name'" class="thumbnail meetup-listing">
+    <li ng-repeat="meetup in meetups | orderBy: 'name'" class="thumbnail meetup-listing">
       <div ng-if="meetup.group_photo.thumb_link" class="meetup-photo"><img ng-src="{{meetup.group_photo.thumb_link}}" /></div>
       <div ng-if="!meetup.group_photo.thumb_link" class="meetup-photo"><img ng-src="http://photos4.meetupstatic.com/img/noPhoto_80.png" /></div>
       <div class="meetup-details">

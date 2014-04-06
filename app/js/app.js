@@ -29,14 +29,14 @@ meetupRaffler.config(['$routeProvider',
 			})
 			.when('/meetups', {
 				templateUrl: 'partials/meetup-list.html',
-				controller: 'meetupList'
+				controller: 'meetups'
 			})
 			.when('/meetups/:groupId', {
 				templateUrl: 'partials/meetup-event.html',
-				controller: 'meetupEvent'
-			//})
-			//.otherwise({
-			//	redirectTo: '/'
+				controller: 'meetup'
+			})
+			.otherwise({
+				redirectTo: '/'
 			});
 	}
 ]);

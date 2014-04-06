@@ -2,8 +2,8 @@
 
 // Controller
 
-meetupRafflerControllers.controller('meetupEvent', ['$scope', '$rootScope', '$route', 'meetupEventData', 'meetupEventRsvps', 'authService',
-	function($scope, $rootScope, $route, meetupEventData, meetupEventRsvps, authService) {
+meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route', 'meetupData', 'meetupRsvps', 'authService',
+	function($scope, $rootScope, $route, meetupData, meetupRsvps, authService) {
 		$scope.getRandomMember = function() {
 			var min = 0;
 			var max = $scope.rsvps.length - 1;
@@ -34,7 +34,7 @@ meetupRafflerControllers.controller('meetupEvent', ['$scope', '$rootScope', '$ro
 
 		var groupId = $route.current.params['groupId'];
 
-		var meetup = meetupEventData.getMeetupEvent({
+		var meetup = meetupData.getmeetup({
 			group_id: groupId,
 			access_token: authService.accessToken()
 		});
@@ -43,10 +43,10 @@ meetupRafflerControllers.controller('meetupEvent', ['$scope', '$rootScope', '$ro
 		meetup.$promise
 			.then(
 				function(event) {
-					$scope.meetupEvent = event.results[0];
+					$scope.meetup = event.results[0];
 
-					var rsvps = meetupEventRsvps.getEventRsvps({
-						event_id: $scope.meetupEvent.id,
+					var rsvps = meetupRsvps.getEventRsvps({
+						event_id: $scope.meetup.id,
 						access_token: authService.accessToken()
 					});
 
@@ -67,7 +67,7 @@ meetupRafflerControllers.controller('meetupEvent', ['$scope', '$rootScope', '$ro
 
 // Service
 
-meetupRafflerServices.factory('meetupEventData', ['$resource',
+meetupRafflerServices.factory('meetupData', ['$resource',
 	function($resource) {
 		var resource = $resource('https://api.meetup.com/2/events?&status=upcoming&limited_events=true&page=1&group_id=:group_id&access_token=:access_token',
 			{
@@ -79,18 +79,18 @@ meetupRafflerServices.factory('meetupEventData', ['$resource',
         		}
 			});
 		return {
-			getMeetupEvent: function(options) {
-				var meetupEvent = resource.get({
+			getmeetup: function(options) {
+				var meetup = resource.get({
 					group_id: options.group_id,
 					access_token: options.access_token
 				});
-				return meetupEvent;
+				return meetup;
 			}
 		}
 	}
 ]);
 
-meetupRafflerServices.factory('meetupEventRsvps', ['$resource',
+meetupRafflerServices.factory('meetupRsvps', ['$resource',
 	function($resource) {
 		var resource = $resource('https://api.meetup.com/2/rsvps?&rsvp=yes&event_id=:event_id&access_token=:access_token',
 			{
