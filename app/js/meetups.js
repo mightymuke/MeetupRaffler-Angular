@@ -2,14 +2,16 @@
 
 // Controller
 
-meetupRafflerControllers.controller('meetups', ['$scope', 'meetupsData', 'authService',
-	function($scope, meetupsData, authService) {
+meetupRafflerControllers.controller('meetups', ['$scope', 'meetupsService', 'authService',
+	function($scope, meetupsService, authService) {
 
 		if (!authService.isLoggedIn()) {
 
 		}
-		
-		var meetups = meetupsData.getmeetups({
+
+		// $scope.meetups = dataMeetups.results;		
+
+		var meetups = meetupsService.getmeetups({
 			memberId: '69467752',
 			access_token: authService.accessToken()
 		});
@@ -27,7 +29,7 @@ meetupRafflerControllers.controller('meetups', ['$scope', 'meetupsData', 'authSe
 
 // Service
 
-meetupRafflerServices.factory('meetupsData', ['$resource',
+meetupRafflerServices.factory('meetupsService', ['$resource',
 	function($resource) {
 		var resource = $resource('https://api.meetup.com/2/groups?member_id=:memberId&access_token=:access_token',
 			{

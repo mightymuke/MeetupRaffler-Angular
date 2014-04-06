@@ -2,8 +2,8 @@
 
 // Controller
 
-meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route', 'meetupData', 'meetupRsvps', 'authService',
-	function($scope, $rootScope, $route, meetupData, meetupRsvps, authService) {
+meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route', 'meetupEventService', 'meetupEventRsvpsService', 'authService',
+	function($scope, $rootScope, $route, meetupEventService, meetupEventRsvpsService, authService) {
 		$scope.getRandomMember = function() {
 			var min = 0;
 			var max = $scope.rsvps.length - 1;
@@ -34,18 +34,20 @@ meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route',
 
 		var groupId = $route.current.params['groupId'];
 
-		var meetup = meetupData.getmeetup({
+		// $scope.meetup = dataMeetup.results[0];
+		// $scope.rsvps = explodeTheGuests(dataMeetupRsvps.results);
+
+		var meetup = meetupEventService.getmeetup({
 			group_id: groupId,
 			access_token: authService.accessToken()
 		});
-
 
 		meetup.$promise
 			.then(
 				function(event) {
 					$scope.meetup = event.results[0];
 
-					var rsvps = meetupRsvps.getEventRsvps({
+					var rsvps = meetupEventRsvpsService.getEventRsvps({
 						event_id: $scope.meetup.id,
 						access_token: authService.accessToken()
 					});
@@ -67,7 +69,7 @@ meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route',
 
 // Service
 
-meetupRafflerServices.factory('meetupData', ['$resource',
+meetupRafflerServices.factory('meetupEventService', ['$resource',
 	function($resource) {
 		var resource = $resource('https://api.meetup.com/2/events?&status=upcoming&limited_events=true&page=1&group_id=:group_id&access_token=:access_token',
 			{
@@ -90,7 +92,7 @@ meetupRafflerServices.factory('meetupData', ['$resource',
 	}
 ]);
 
-meetupRafflerServices.factory('meetupRsvps', ['$resource',
+meetupRafflerServices.factory('meetupEventRsvpsService', ['$resource',
 	function($resource) {
 		var resource = $resource('https://api.meetup.com/2/rsvps?&rsvp=yes&event_id=:event_id&access_token=:access_token',
 			{
