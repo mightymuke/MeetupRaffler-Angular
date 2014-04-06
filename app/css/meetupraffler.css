@@ -190,3 +190,12 @@ li.member-listing {
   margin-top: 8px;
   margin-right: 5px;
 }
+
+.index-edit {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.index-edit input {
+  margin-top: 10px;
+}
