@@ -28,11 +28,11 @@ meetupRaffler.config(['$routeProvider',
 				controller: 'authorisation'
 			})
 			.when('/meetups', {
-				templateUrl: 'partials/meetup-list.html',
+				templateUrl: 'partials/meetups.html',
 				controller: 'meetups'
 			})
 			.when('/meetups/:groupId', {
-				templateUrl: 'partials/meetup-event.html',
+				templateUrl: 'partials/meetup.html',
 				controller: 'meetup'
 			})
 			.otherwise({

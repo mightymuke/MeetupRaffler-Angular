@@ -1,0 +1,30 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">{{meetup.group.name}}</h1>
+  <div style="float: left;" class="member-meetup-name"><h3>Next Event: </h3></div><a href="{{meetup.event_url}}" class="thumb" style="float: left;">
+    <div class="nametag-photo-name member-meetup-name">
+      <h3 class="event-name">{{meetup.name}}</h3>
+    </div>
+  </a>
+  <div style="float: right;">
+    <a href="" ng-click="getRandomMember();">Random Member</a>
+  </div>
+  <div style="clear: both;">
+    <h4 class="ng-cloak">(<span class="count">{{meetup.yes_rsvp_count}}</span> {{meetup.group.who}})</h4>
+  </div>
+  <ul>
+    <li ng-repeat="rsvp in rsvps | orderBy: 'member.name'" class="thumbnail member-listing member-{{$index}}">
+      <div ng-if="rsvp.member_photo" class="member-photo"><img ng-src="{{rsvp.member_photo.thumb_link}}" width="50" /></div>
+      <div ng-if="!rsvp.member_photo" class="member-photo"><img ng-src="http://img2.meetupstatic.com/img/458386242735519287330/noPhoto_50.png" width="50" height="50" /></div>
+      <div class="rsvp-details">
+        <a href="http://www.meetup.com/{{rsvp.group.urlname}}/members/{{rsvp.member.member_id}}" class="thumb">
+          <div class="nametag-photo-name">
+            <h5 class="meetup-name">{{rsvp.member.name}}</h5>
+          </div>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- Notifications -->
+<div noty ng-repeat="n in notifications"/>
