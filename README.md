@@ -1,3 +1,10 @@
+MeetupRaffler-Angular
+=====================
+
+MeetupRaffler demo app written in Angular
+
+**Not a real app** - For playing with Angular only.
+
 # angular-seed — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
