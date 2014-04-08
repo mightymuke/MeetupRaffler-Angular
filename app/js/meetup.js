@@ -24,6 +24,7 @@ meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route',
 							name: rsvp.member.name + ' (Guest #' + (guest + 1) + ')',
 							member_id: rsvp.member_id
 						},
+						group: rsvp.group,
 						rsvp_id: rsvp.rsvp_id
 					});
 				}
