@@ -7,9 +7,44 @@ meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route',
 		$scope.getRandomMember = function() {
 			var min = 0;
 			var max = $scope.rsvps.length - 1;
-			var memberIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-			var memberName = $scope.rsvps[memberIndex].member.name;
-			$rootScope.authNotifier.notify('success', 'Member ' + memberName + " has won!");
+			var selectedPrize = $("#prize option:selected");
+			var selectedPrizeText = selectedPrize.text().trim();
+			var selectedPrizeValue = selectedPrize.val();
+			if (selectedPrizeText !== "") {
+
+				var memberFound = false;
+				var count = 0;
+				while (!memberFound && count < 5) {
+					var memberIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+					var member = $scope.rsvps[memberIndex].member;
+					memberFound = memberIsValidForPrize(member.member_id, selectedPrizeValue);
+					count += 1;
+				}
+
+				if (count < 5) {
+					$rootScope.authNotifier.notify('success', 'Congratulations<br/>' + member.name + ' has won a ' + selectedPrizeText + '!');
+				} else {
+					$rootScope.authNotifier.notify('error', 'Unable to find a winner');
+				}
+
+			} else {
+				$rootScope.authNotifier.notify('error', 'Please select a prize you silly billy!');
+			}
+		}
+
+		var memberIsValidForPrize = function(member_id, prize) {
+			console.log('checking ' + member_id + " for " + prize);
+			// Marcus Bristol - Organiser - 69467752
+			// David Teirney - Pluralsight monthly subscription - 4067396
+			// Kalman Bekesi - JetBrains license (IntellJ IDEA) - 4388211
+			// Mathew Peachey - JetBrains license (PyCharm) - 138673112
+
+			var prizesAlreadyWon = [];
+			prizesAlreadyWon["apress"] = [69467752];
+			prizesAlreadyWon["pluralsight"] = [69467752, 4067396];
+			prizesAlreadyWon["jetbrains"] = [69467752, 4388211, 138673112];
+
+			return $.inArray(member_id, prizesAlreadyWon[prize]) < 0;
 		}
 
 		var explodeTheGuests = function(rsvps) {

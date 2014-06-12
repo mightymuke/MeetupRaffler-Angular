@@ -5,8 +5,17 @@
       <h3 class="event-name">{{meetup.name}}</h3>
     </div>
   </a>
+  <div style="float: right; padding-left: 20px;">
+    <a href="" ng-click="getRandomMember();">Select Random Member</a>
+  </div>
   <div style="float: right;">
-    <a href="" ng-click="getRandomMember();">Random Member</a>
+  	<span>Prize: </span>
+  	<select id="prize">
+  		<option value="-1"></option>
+  		<option value="apress">Apress eBook</option>
+  		<option value="pluralsight">Pluralsight Subscription</option>
+  		<option value="jetbrains">JetBrains License</option>
+  	</select>
   </div>
   <div style="clear: both;">
     <h4 class="ng-cloak">(<span class="count">{{meetup.yes_rsvp_count}}</span> {{meetup.group.who}})</h4>
