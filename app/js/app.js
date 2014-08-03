@@ -1,76 +1,83 @@
-'use strict';
+define([
+	'angular',
+	'notificationManager',
+	'ngRoute'
+], function(angular, NotificationManager) {
+	'use strict';
 
-// Declare app level module which depends on filters, and services
-var meetupRaffler = angular.module('meetupRaffler', [
-	'ngRoute',
-	'meetupRafflerFilters',
-	'meetupRafflerServices',
-	'meetupRafflerDirectives',
-	'meetupRafflerControllers'
-]);
+    // Declare app level module which depends on filters, and services
+    var meetupRaffler = angular.module('meetupRaffler', [
+    	'ngRoute',
+    	'meetupRafflerFilters',
+		'meetupRafflerServices',
+		'meetupRafflerDirectives',
+		'meetupRafflerControllers'
+    ]);
 
-var meetupRafflerControllers = angular.module('meetupRafflerControllers', ['ngCookies']);
+	// Routes
+	meetupRaffler.config(['$routeProvider',
+		function($routeProvider) {
+			$routeProvider
+				.when('/', {
+					templateUrl: 'partials/home.html',
+					controller: 'home'
+				})
+				.when('/login', {
+					templateUrl: 'partials/login.html',
+					controller: 'authorisation'
+				})
+				.when('/meetups', {
+					templateUrl: 'partials/meetups.html',
+					controller: 'meetups'
+				})
+				.when('/meetups/:groupId', {
+					templateUrl: 'partials/meetup.html',
+					controller: 'meetup'
+				})
+				.otherwise({
+					redirectTo: '/'
+				});
+		}
+	]);
 
-var meetupRafflerServices = angular.module('meetupRafflerServices', ['ngResource']);
-meetupRafflerServices.value('version', '0.1');
+	// Bootstrap
+	meetupRaffler.init = function () {
+		angular.bootstrap(document, ['meetupRaffler']);
+	};
 
-// Routes
+	// This is run after angular is instantiated and bootstrapped
+	meetupRaffler.run(['$rootScope', '$location', 'authService',
+		function($rootScope, $location, authService) {
 
-meetupRaffler.config(['$routeProvider',
-	function($routeProvider) {
-		$routeProvider
-			.when('/', {
-				templateUrl: 'partials/home.html',
-				controller: 'home'
-			})
-			.when('/login', {
-				templateUrl: 'partials/login.html',
-				controller: 'authorisation'
-			})
-			.when('/meetups', {
-				templateUrl: 'partials/meetups.html',
-				controller: 'meetups'
-			})
-			.when('/meetups/:groupId', {
-				templateUrl: 'partials/meetup.html',
-				controller: 'meetup'
-			})
-			.otherwise({
-				redirectTo: '/'
-			});
-	}
-]);
+			// *****
+			// Initialize authentication
+			// *****
+			$rootScope.authService = authService;
 
-// this is run after angular is instantiated and bootstrapped
-meetupRaffler.run(['$rootScope', '$location', 'authService',
-	function($rootScope, $location, authService) {
+			$rootScope.$watch('authService.authorized()', function () {
 
-		// *****
-		// Initialize authentication
-		// *****
-		$rootScope.authService = authService;
+				// if never logged in, do nothing (otherwise bookmarks fail)
+				if ($rootScope.authService.initialState()) {
+					// we are public browsing
+					return;
+				}
 
-		$rootScope.$watch('authService.authorized()', function () {
+				// instantiate and initialize an auth notification manager
+				$rootScope.authNotifier = new NotificationManager($rootScope);
 
-			// if never logged in, do nothing (otherwise bookmarks fail)
-			if ($rootScope.authService.initialState()) {
-				// we are public browsing
-				return;
-			}
+				// when user logs in, redirect to home
+				if ($rootScope.authService.authorized()) {
+					$rootScope.authNotifier.notify('information', 'Successfully logged in!');
+				}
 
-			// instantiate and initialize an auth notification manager
-			$rootScope.authNotifier = new NotificationManager($rootScope);
+				// when user logs out, redirect to home
+				if (!$rootScope.authService.authorized()) {
+					$rootScope.authNotifier.notify('information', 'Thanks for visiting. You have been signed out.');
+				}
 
-			// when user logs in, redirect to home
-			if ($rootScope.authService.authorized()) {
-				$rootScope.authNotifier.notify('information', 'Successfully logged in!');
-			}
+			}, true);
+		}
+	]);
 
-			// when user logs out, redirect to home
-			if (!$rootScope.authService.authorized()) {
-				$rootScope.authNotifier.notify('information', 'Thanks for visiting. You have been signed out.');
-			}
-
-		}, true);
-	}
-]);
+	return meetupRaffler;
+});

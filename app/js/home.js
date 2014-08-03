@@ -1,21 +1,25 @@
-'use strict';
+define([
+	'meetupRafflerControllers'
+], function(meetupRafflerControllers) {
+	'use strict';
 
-// Controller
+	// Controller
 
-meetupRafflerControllers.controller('home', ['$scope',
-	function($scope) {
-		$scope.edit = function() {
-			console.log("edit");
-			$scope.isEditing = true;
-		};
+	meetupRafflerControllers.controller('home', ['$scope',
+		function($scope) {
+			$scope.edit = function() {
+				console.log("edit");
+				$scope.isEditing = true;
+			};
 
-		$scope.doneEditing = function() {
-			console.log("doneEditing");
+			$scope.doneEditing = function() {
+				console.log("doneEditing");
+				$scope.isEditing = false;
+			};
+
 			$scope.isEditing = false;
-		};
+			$scope.title = "Dashboard";
+		}]
+	);
 
-		$scope.isEditing = false;
-		$scope.title = "Dashboard";
-	}]
-);
-
+});
