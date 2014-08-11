@@ -178,7 +178,7 @@ div.member-photo {
   margin: auto;
 }
 
-li.member-listing {
+div.member-listing {
   width: 110px;
   height: 110px;
   float: left;
@@ -198,4 +198,9 @@ li.member-listing {
 
 .index-edit input {
   margin-top: 10px;
+}
+
+.thumbnail {
+  -webkit-transition: all 0 ease 0;
+  transition: all 0 ease 0;
 }

@@ -20,8 +20,8 @@
   <div style="clear: both;">
     <h4 class="ng-cloak">(<span class="count">{{meetup.yes_rsvp_count}}</span> {{meetup.group.who}})</h4>
   </div>
-  <ul>
-    <li ng-repeat="rsvp in rsvps | orderBy: 'member.name'" class="thumbnail member-listing member-{{$index}}">
+  <div id="member-listings">
+    <div ng-repeat="rsvp in rsvps | orderBy: 'member.name'" class="thumbnail member-listing member-{{$index}}">
       <div ng-if="rsvp.member_photo" class="member-photo"><img ng-src="{{rsvp.member_photo.thumb_link}}" width="50" /></div>
       <div ng-if="!rsvp.member_photo" class="member-photo"><img ng-src="http://img2.meetupstatic.com/img/458386242735519287330/noPhoto_50.png" width="50" height="50" /></div>
       <div class="rsvp-details">
@@ -31,8 +31,9 @@
           </div>
         </a>
       </div>
-    </li>
-  </ul>
+    </div>
+    <div style="clear:both"></div>
+  </div>
 </div>
 
 <!-- Notifications -->
