@@ -125,7 +125,8 @@ define([
 
 	meetupRafflerServices.factory('meetupEventService', ['$resource',
 		function($resource) {
-			var resource = $resource('https://api.meetup.com/2/events?&status=upcoming&limited_events=true&page=1&group_id=:group_id&access_token=:access_token',
+			// TODO - we need to handle previous meetups too
+			var resource = $resource('https://api.meetup.com/2/events?&status=upcoming,past&limited_events=true&page=1&desc=true&group_id=:group_id&access_token=:access_token',
 				{
 					access_token : '@access_token'
 				},
