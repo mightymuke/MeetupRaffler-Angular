@@ -184,6 +184,8 @@ div.member-listing {
   float: left;
   margin: 10px;
   text-align: center;
+  background: #EFEFEF;
+  box-shadow: 2px 2px 3px #aaaaaa;
 }
 
 .member-meetup-name h3 {
