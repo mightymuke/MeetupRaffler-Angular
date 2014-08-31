@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "count": 1,
+        "description": "Access Meetup events using a group, member, or event id. Events in private groups are available only to authenticated members of those groups. To search events by topic or location, see [Open Events](/meetup_api/docs/2/open_events).",
+        "id": "",
+        "lat": "",
+        "link": "https://api.meetup.com/2/events",
+        "lon": "",
+        "method": "Events",
+        "next": "https://api.meetup.com/2/events?group_id=12784912&status=upcoming%2Cpast&order=time&limited_events=True&desc=true&offset=1&format=json&page=1&fields=&access_token=64cee7d463023f4e58981b3d5bd72714",
+        "title": "Meetup Events v2",
+        "total_count": 4,
+        "updated": 1408589932000,
+        "url": "https://api.meetup.com/2/events?group_id=12784912&status=upcoming%2Cpast&order=time&limited_events=True&desc=true&offset=0&format=json&page=1&fields=&access_token=64cee7d463023f4e58981b3d5bd72714"
+    },
+    "results": [
+        {
+            "announced": true,
+            "created": 1408589889000,
+            "description": "<p>Thanks very much to Orion Health for the venue!</p> <p>Tonight we have two great talks for you.</p> <p>We'll start with Colin Bowern (an abstract artist and a concrete analyst interested in full-contact origami) on \"Federating with the Enterprise: Handling Identity Management for SaaS Applications\". If you are building a software-as-a-service type application and the enterprise is your target, sooner or later you will be asked how you integrate into the enterprise identity and access management strategy. In this session we'll take a look at how to use claims-based technologies to mitigate risk and put corporate security and liabilities into the right hands -- the customer.</p> <p>Then we'll break for pizza. Need I say more?</p> <p>Finally we'll hear from Michael Barker (High Performance Java expert, maintainer of LMAX Disruptor) who will talk about \"Testing Automation\". Automated testing is hard but necessary. A fully automated testing system requires serious investment and attention to be successful. LMAX has been committed this approach since its inception 6 years ago and learnt many hard lessons along the way. We will share the highlights our experience of testing a large and complex system including; the different types of testing that we apply, design patterns to write robust tests, tools (some open source) built to support the process and a few war stories.</p> <p>See you there!</p>",
+            "event_url": "http://www.meetup.com/auckland-software-craftsmanship/events/202234152/",
+            "group": {
+                "group_lat": -36.849998474121094,
+                "group_lon": 174.75999450683594,
+                "id": 12784912,
+                "join_mode": "open",
+                "name": "Auckland Software Craftsmanship",
+                "urlname": "auckland-software-craftsmanship",
+                "who": "Software Crafters"
+            },
+            "headcount": 0,
+            "how_to_find_us": "Orion's staff carparks are available as people leave for the day. We have 2 available, one on the corner of Grafton Road and Khyber Pass, the other around the back on Madeira Place. While these say reserved feel free to park in them during the meetup",
+            "id": "202234152",
+            "maybe_rsvp_count": 0,
+            "name": "Identity Management and Test Automation",
+            "rsvp_limit": 80,
+            "status": "upcoming",
+            "time": 1412744400000,
+            "updated": 1408589932000,
+            "utc_offset": 46800000,
+            "venue": {
+                "address_1": "181 Grafton Road (cnr Kyber Pass and Grafton Road)",
+                "city": "Auckland",
+                "country": "nz",
+                "id": 9621522,
+                "lat": -36.858738,
+                "lon": 174.768509,
+                "name": "Orion Health - 181 Grafton Road",
+                "repinned": false
+            },
+            "visibility": "public",
+            "waitlist_count": 0,
+            "yes_rsvp_count": 80
+        }
+    ]
+}

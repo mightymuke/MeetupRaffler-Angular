@@ -13,21 +13,29 @@ define([
 
 			}
 
-			// $scope.meetups = dataMeetups.results;		
-
 			var meetups = meetupsService.getmeetups({
-				memberId: '69467752',
+				memberId: userMeetupId,
 				access_token: authService.accessToken()
 			});
 
-			meetups.$promise.then(
-				function(event) {
-					$scope.meetups = event.results;
-				},
-				function(response) {
-					console.log(response);
-				}
-			);
+			if (!useMeetupWebservices) {
+				require([
+					"json!../data/meetups.json"
+				], function(meetups) {
+					$scope.$apply(function() {
+						$scope.meetups = meetups.results;
+					});
+				});
+			} else {
+				meetups.$promise.then(
+					function(event) {
+						$scope.meetups = event.results;
+					},
+					function(response) {
+						console.log(response);
+					}
+				);
+			}
 		}
 	]);
 

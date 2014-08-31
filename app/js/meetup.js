@@ -135,9 +135,17 @@ define([
 
 			var groupId = $route.current.params['groupId'];
 
-		// $scope.meetup = dataMeetup.results[0];
-		// $scope.rsvps = explodeTheGuests(dataMeetupRsvps.results);
-
+			if (!useMeetupWebservices) {
+				require([
+					"json!../data/meetup.json",
+					"json!../data/rsvps.json"
+				], function(dataMeetup, dataMeetupRsvps) {
+					$scope.$apply(function() {
+						$scope.meetup = dataMeetup.results[0];
+						$scope.rsvps = explodeTheGuests(dataMeetupRsvps.results);
+					});
+				});
+			} else {
 				var meetup = meetupEventService.getmeetup({
 					group_id: groupId,
 					access_token: authService.accessToken()

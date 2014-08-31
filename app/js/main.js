@@ -4,6 +4,8 @@ require.config({
 
 	paths: {
 		'domReady'      : '../lib/requirejs/domReady',
+		'text'          : '../lib/requirejs/text',
+		'json'          : '../lib/requirejs/json',
 		'angular'       : '../lib/angular/angular',
 		'ngRoute'       : '../lib/angular/angular-route',
 		'ngResource'    : '../lib/angular/angular-resource',
@@ -34,6 +36,7 @@ require.config({
 
 require([
 	'app',
+	'config',
 	'noty',
 	'notyLayout',
 	'notyTheme',
