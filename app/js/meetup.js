@@ -1,7 +1,9 @@
 define([
 	'meetupRafflerControllers',
-	'meetupRafflerServices'
-], function(meetupRafflerControllers, meetupRafflerServices) {
+	'meetupRafflerServices',
+	'json!../data/winners.json',
+	'winnerAnimation'
+], function(meetupRafflerControllers, meetupRafflerServices, previousWinners) {
 	'use strict';
 
 	// Controller
@@ -99,17 +101,11 @@ define([
 
 			var memberIsValidForPrize = function(member_id, prize) {
 				console.log('checking ' + member_id + " for " + prize);
-				// Marcus Bristol - Organiser - 69467752
-				// David Teirney - Pluralsight monthly subscription - 4067396
-				// Kalman Bekesi - JetBrains license (IntellJ IDEA) - 4388211
-				// Mathew Peachey - JetBrains license (PyCharm) - 138673112
 
-				var prizesAlreadyWon = [];
-			prizesAlreadyWon["apress"] = [69467752];
-			prizesAlreadyWon["pluralsight"] = [69467752, 4067396];
-			prizesAlreadyWon["jetbrains"] = [69467752, 4388211, 138673112];
-
-				return $.inArray(member_id, prizesAlreadyWon[prize]) < 0;
+				var result = $.grep(previousWinners[prize], function(element, index) {
+					return element.member.member_id === member_id;
+				});
+				return result.length == 0;
 			}
 
 			var explodeTheGuests = function(rsvps) {
