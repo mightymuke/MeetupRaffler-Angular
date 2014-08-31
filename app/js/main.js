@@ -3,6 +3,10 @@
 require.config({
 
 	paths: {
+		"jquery"        : [
+							'//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
+							'../lib/jquery/jquery-1.11.0.min'
+						  ],
 		'domReady'      : '../lib/requirejs/domReady',
 		'text'          : '../lib/requirejs/text',
 		'json'          : '../lib/requirejs/json',
@@ -18,24 +22,41 @@ require.config({
 	},
 
 	shim: {
-		angular: {
+		'angular': {
+			deps: ['jquery'],
 			exports: 'angular'
 		},
-		ngRoute: {
+		'ngRoute': {
 			deps: ['angular']
 		},
-		ngResource: {
+		'ngResource': {
 			deps: ['angular']
 		},
-		ngCookies: {
+		'ngCookies': {
 			deps: ['angular']
 		},
-	},
+		'noty': {
+			deps: ['jquery']
+		},
+		'notyLayout': {
+			deps: ['jquery', 'noty']
+		},
+		'notyTheme': {
+			deps: ['jquery', 'noty']
+		},
+		'bootstrap': {
+			deps: ['jquery']
+		},
+		'bootstrapDocs': {
+			deps: ['jquery', 'bootstrap']
+		}
+	}
 
 });
 
 require([
 	'app',
+	'jquery',
 	'config',
 	'noty',
 	'notyLayout',
