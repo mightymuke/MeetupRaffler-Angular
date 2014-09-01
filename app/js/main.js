@@ -7,6 +7,7 @@ require.config({
 							'//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
 							'../lib/jquery/jquery-1.11.0.min'
 						  ],
+		'jquery.cookie' : '../lib/jquery/jquery.cookie',
 		'domReady'      : '../lib/requirejs/domReady',
 		'text'          : '../lib/requirejs/text',
 		'json'          : '../lib/requirejs/json',
@@ -25,6 +26,9 @@ require.config({
 		'angular': {
 			deps: ['jquery'],
 			exports: 'angular'
+		},
+		'jquery.cookie': {
+			deps: ['jquery']
 		},
 		'ngRoute': {
 			deps: ['angular']
