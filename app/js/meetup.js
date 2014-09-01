@@ -66,7 +66,7 @@ define([
 						rsvps.push({
 							member: {
 								name: rsvp.member.name + ' (Guest #' + (guest + 1) + ')',
-								member_id: rsvp.member_id
+								member_id: rsvp.member.member_id + "-1"
 							},
 							group: rsvp.group,
 							rsvp_id: rsvp.rsvp_id
