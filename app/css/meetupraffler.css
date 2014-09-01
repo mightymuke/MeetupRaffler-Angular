@@ -206,3 +206,19 @@ div.member-listing {
   -webkit-transition: all 0 ease 0;
   transition: all 0 ease 0;
 }
+
+.winner-congrats {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.winner-prize-label {
+  margin-top: 25px;
+}
+
+.winner-prize {
+  color: #428bca;
+  font-size: 16px;
+  font-weight: bold;
+}

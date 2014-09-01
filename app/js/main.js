@@ -54,6 +54,25 @@ require.config({
 
 });
 
+// require([
+//	"../lib/noty/jquery.noty",
+ // "../lib/noty/layouts/center",
+ //  "../lib/noty/themes/default",
+ //   "../lib/bootstrap/bootstrap.min",
+ //    "../lib/bootstrap/docs.min",
+ //     "../lib/angular/angular",
+ //      "../lib/angular/angular-route",
+ //       "../lib/angular/angular-cookies",
+ //        "../lib/angular/angular-resource",
+ //         "authorisation",
+ //          "directives",
+ //           "filters",
+ //            "home",
+ //             "meetup",
+ //              "meetups",
+ //               "data",
+ //                "notificationManager"],
+
 require([
 	'app',
 	'jquery',

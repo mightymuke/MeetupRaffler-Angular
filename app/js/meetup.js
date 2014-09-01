@@ -21,19 +21,21 @@ define([
 					$scope.isSelectingPrizeWinner = true;
 
 					var memberFound = false;
+					var winningMember = {};
 					var count = 0;
 					while (!memberFound && count < 5) {
 						var memberIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-						var member = $scope.rsvps[memberIndex].member;
-						console.log("Winner " + memberIndex + " is " + member.name + ' (' + member.member_id + ')');
-						memberFound = memberIsValidForPrize(member.member_id, selectedPrizeId);
+						winningMember = $scope.rsvps[memberIndex].member;
+						console.log("Winner " + memberIndex + " is " + winningMember.name + ' (' + winningMember.member_id + ')');
+						memberFound = memberIsValidForPrize(winningMember.member_id, selectedPrizeId);
 						count += 1;
 					}
 
-					if (count < 5) {
-						displayWinner(member, selectedPrizeText);
+					if (memberFound) {
+						previousWinners[selectedPrizeId].push({'member': winningMember});
+						displayWinner(winningMember, selectedPrizeText);
 					} else {
-						displayNoWinnerError();
+						displayNoWinnerError($rootScope);
 					}
 
 				} else {
@@ -42,13 +44,14 @@ define([
 			}
 
 			$scope.resetMemberTiles = function() {
+				clearWinner();
 				$scope.isSelectingPrizeWinner = false;
 			}
 
 			$scope.isSelectingPrizeWinner = false;
 
 			var memberIsValidForPrize = function(member_id, prize) {
-				console.log('checking ' + member_id + " for eligibility to " + prize);
+				console.log("checking winner " + member_id + " for eligibility to " + prize + " prize");
 
 				var result = $.grep(previousWinners[prize], function(element, index) {
 					return element.member.member_id === member_id;

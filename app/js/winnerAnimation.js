@@ -1,4 +1,4 @@
-var displayNoWinnerError = function() {
+var displayNoWinnerError = function($rootScope) {
 	$rootScope.authNotifier.notify('error', 'Unable to find a winner');
 }
 
@@ -8,13 +8,15 @@ var displayWinner = function(member, selectedPrizeText) {
 	var memberCount = $memberListings.length;
 	var i = 0;
 
-	//$rootScope.authNotifier.notify('success', 'Congratulations<br/>' + member.name + ' has won a ' + selectedPrizeText + '!');
-
 	// Fix their positions
 	$memberListings.each(function(index) {
 		var $this = $(this);
-		$this.css("left", Math.max(0, $this.position().left) + "px");
-		$this.css("top", Math.max(0, $this.position().top) + "px");
+		var originalLeft = Math.max(0, $this.position().left) + "px";
+		var originalTop = Math.max(0, $this.position().top) + "px";
+		$this.css("left", originalLeft);
+		$this.css("top", originalTop);
+		$this.attr("data-original-left", originalLeft);
+		$this.attr("data-original-top", originalTop);
 		$this.css("z-index", index * -1);
 	})
 	$memberListings.css("position", "absolute");
@@ -40,39 +42,75 @@ var displayWinner = function(member, selectedPrizeText) {
 								.clone()
 								.addClass('winner-highlight')
 								.css("z-index", 1000)
+								.prepend('<div class="winner-congrats">Congratulations!</div>')
+								.append('<div class="winner-prize-label" style="display: none; visibility: hidden;">You have won a<div class="winner-prize">' + selectedPrizeText + '</div></div>')
 								.appendTo('#member-listings');
 							$winner.animate(
 									{
-										height: "165px",
-										width: "250px",
-										left: $winner.position().left - 125 + "px",
-										top: $winner.position().top - 125 + "px"
+										height: "350px",
+										width: "350px",
+										left: $winner.position().left - 175 + "px",
+										top: $winner.position().top - 175 + "px"
 									})
 									.find('.member-photo').animate(
 									{
 										width: "100px",
-										height: "100px"
+										height: "100px",
+										'margin-top': "25px"
 									})
 									.find('img').animate(
 									{
 										width: "100px"
 									})
-									.end().end()
+									.end()
+									.end()
+									.find('.winner-prize-label').animate(
+									{
+										display: 'block',
+										visibility: 'visible'
+									})
+									.end()
 									.find('.nametag-photo-name h5').animate(
 									{
 										"font-size": "28px"
-									},
-									{
-										done: function() {
-											//$rootScope.authNotifier.notify('success', 'Congratulations<br/>' + member.name + ' has won a ' + selectedPrizeText + '!');
-											alert('Congratulations\r\n' + member.name + ' has won a ' + selectedPrizeText + '!');
-										}
 									});
 						});
 					}
 				}
 			});
 		});
+}
+
+var clearWinner = function() {
+	$('.winner-highlight').animate(
+	{
+		opacity: 0
+	},
+	{
+		duration: 500,
+		easing: 'linear',
+		done: function() {
+			$('.winner-highlight').remove();
+		}
+	});
+
+	var $memberListings = $('.member-listing');
+	$memberListings.each(function(index) {
+		var $this = $(this);
+		var thisLeft = $this.attr("data-original-left");
+		var thisTop = $this.attr("data-original-top");
+		$this
+			.animate(
+			{
+				'left' : thisLeft,
+				'top' : thisTop
+			},
+			{
+				duration: 500,
+				easing: 'linear'
+			})
+		});
+	$memberListings.css("z-index", 1);
 }
 
 var chain = function(toAnimate, ix, zindex, animationComplete) {
