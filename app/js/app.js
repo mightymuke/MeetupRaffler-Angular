@@ -46,8 +46,10 @@ define([
 	};
 
 	// This is run after angular is instantiated and bootstrapped
-	meetupRaffler.run(['$rootScope', '$location', 'authService',
-		function($rootScope, $location, authService) {
+	meetupRaffler.run(['$rootScope', '$location', 'authService', 'configService',
+		function($rootScope, $location, authService, configService) {
+
+			$rootScope.configService = configService;
 
 			// *****
 			// Initialize authentication

@@ -6,8 +6,8 @@ define([
 
 	// Controller
 
-	meetupRafflerControllers.controller('meetups', ['$scope', 'meetupsService', 'authService',
-		function($scope, meetupsService, authService) {
+	meetupRafflerControllers.controller('meetups', ['$scope', 'meetupsService', 'authService', 'configService',
+		function($scope, meetupsService, authService, configService) {
 
 			if (!authService.isLoggedIn()) {
 
@@ -18,7 +18,7 @@ define([
 				access_token: authService.accessToken()
 			});
 
-			if (!useMeetupWebservices) {
+			if (!configService.useMeetupWebServices()) {
 				require([
 					"json!../data/meetups.json"
 				], function(meetups) {

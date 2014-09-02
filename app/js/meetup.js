@@ -8,8 +8,8 @@ define([
 
 	// Controller
 
-	meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route', 'meetupEventService', 'meetupEventRsvpsService', 'authService',
-		function($scope, $rootScope, $route, meetupEventService, meetupEventRsvpsService, authService) {
+	meetupRafflerControllers.controller('meetup', ['$scope', '$rootScope', '$route', 'meetupEventService', 'meetupEventRsvpsService', 'authService', 'configService',
+		function($scope, $rootScope, $route, meetupEventService, meetupEventRsvpsService, authService, configService) {
 			$scope.getRandomMember = function() {
 				var min = 0;
 				var max = $scope.rsvps.length - 1;
@@ -82,7 +82,7 @@ define([
 
 			var groupId = $route.current.params['groupId'];
 
-			if (!useMeetupWebservices) {
+			if (!configService.useMeetupWebServices()) {
 				require([
 					"json!../data/meetup.json",
 					"json!../data/rsvps.json"
