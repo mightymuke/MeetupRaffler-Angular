@@ -56,7 +56,12 @@ define([
 			// *****
 			$rootScope.authService = authService;
 
-			$rootScope.$watch('authService.authorized()', function () {
+			$rootScope.$watch('authService.authorized()', function(newValue, oldValue) {
+
+				// if initial run, then no change so do nothing
+				if (newValue === oldValue) {
+					return;
+				}
 
 				// if never logged in, do nothing (otherwise bookmarks fail)
 				if ($rootScope.authService.initialState()) {
@@ -67,12 +72,12 @@ define([
 				// instantiate and initialize an auth notification manager
 				$rootScope.authNotifier = new NotificationManager($rootScope);
 
-				// when user logs in, redirect to home
+				// when user logs in
 				if ($rootScope.authService.authorized()) {
 					$rootScope.authNotifier.notify('information', 'Successfully logged in!');
 				}
 
-				// when user logs out, redirect to home
+				// when user logs out
 				if (!$rootScope.authService.authorized()) {
 					$rootScope.authNotifier.notify('information', 'Thanks for visiting. You have been signed out.');
 				}
