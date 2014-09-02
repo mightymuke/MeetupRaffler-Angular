@@ -72,7 +72,7 @@ body {
   }
 }
 .main .page-header {
-  margin-top: 0;
+  margin-top: 10px;
 }
 
 
@@ -221,4 +221,17 @@ div.member-listing {
   color: #428bca;
   font-size: 16px;
   font-weight: bold;
+}
+
+.offline-alert {
+  background: red;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 21px;
+  z-index: 2000;
 }

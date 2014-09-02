@@ -46,34 +46,34 @@ var displayWinner = function(member, selectedPrizeText) {
 								.append('<div class="winner-prize-label" style="display: none; visibility: hidden;">You have won a<div class="winner-prize">' + selectedPrizeText + '</div></div>')
 								.appendTo('#member-listings');
 							$winner.animate(
-									{
-										height: "350px",
-										width: "350px",
-										left: $winner.position().left - 175 + "px",
-										top: $winner.position().top - 175 + "px"
-									})
-									.find('.member-photo').animate(
-									{
-										width: "100px",
-										height: "100px",
-										'margin-top': "25px"
-									})
-									.find('img').animate(
-									{
-										width: "100px"
-									})
-									.end()
-									.end()
-									.find('.winner-prize-label').animate(
-									{
-										display: 'block',
-										visibility: 'visible'
-									})
-									.end()
-									.find('.nametag-photo-name h5').animate(
-									{
-										"font-size": "28px"
-									});
+								{
+									height: "350px",
+									width: "350px",
+									left: $winner.position().left - 175 + "px",
+									top: $winner.position().top - 175 + "px"
+								})
+								.find('.member-photo').animate(
+								{
+									width: "100px",
+									height: "100px",
+									'margin-top': "25px"
+								})
+								.find('img').animate(
+								{
+									width: "100px"
+								})
+								.end()
+								.end()
+								.find('.winner-prize-label').animate(
+								{
+									display: 'block',
+									visibility: 'visible'
+								})
+								.end()
+								.find('.nametag-photo-name h5').animate(
+								{
+									"font-size": "28px"
+								});
 						});
 					}
 				}
@@ -117,34 +117,9 @@ var chain = function(toAnimate, ix, zindex, animationComplete) {
 	zindex--;
 	if(toAnimate[ix]){
 		var moveLeft = 120;
-		var moveTop = Math.floor(Math.random() * (120 + 50) - 50); //50
+		var moveTop = Math.floor(Math.random() * (120 + 50) - 50);
 		var thisLeft = $(toAnimate[ix]).position().left;
 		var thisTop = $(toAnimate[ix]).position().top;
-		// $(toAnimate[ix])
-		// 	.animate(
-		// 		{
-		// 			left: thisLeft - moveLeft + "px",
-		// 			top: thisTop + moveTop + "px"
-		// 		},
-		// 		{
-		// 			duration: 30,
-		// 			easing: 'linear',
-		// 			done: function() {
-		// 				$(toAnimate[ix]).css('z-index', zindex);
-		// 			}
-		// 		})
-		// 	.animate(
-		// 		{
-		// 			left: thisLeft + "px",
-		// 			top: thisTop + "px"
-		// 		},
-		// 		{
-		// 			duration: 30,
-		// 			easing: 'linear',
-		// 			done: function() {
-		// 				chain(toAnimate, ix + 1, zindex);
-		// 			}
-		// 		});
 		$(toAnimate[ix])
 			.animate(
 				{
