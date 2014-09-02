@@ -13,10 +13,6 @@ define([
 
 			}
 
-			var meetups = meetupsService.getmeetups({
-				memberId: userMeetupId,
-				access_token: authService.accessToken()
-			});
 
 			if (!configService.useMeetupWebServices()) {
 				require([
@@ -27,6 +23,11 @@ define([
 					});
 				});
 			} else {
+				var meetups = meetupsService.getmeetups({
+					memberId: configService.userMeetupId(),
+					access_token: authService.accessToken()
+				});
+
 				meetups.$promise.then(
 					function(event) {
 						$scope.meetups = event.results;
