@@ -58,7 +58,9 @@ define([
 
 			$rootScope.$watch('authService.authorized()', function(newValue, oldValue) {
 
-				// if initial run, then no change so do nothing
+				// if initial run, then no change so do nothing as
+				// the listener is always called during the first $digest loop after it was registered
+				// https://docs.angularjs.org/api/ng/type/$rootScope.Scope
 				if (newValue === oldValue) {
 					return;
 				}

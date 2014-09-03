@@ -43,8 +43,8 @@ define([
 
 	// Authorisation Service
 
-	meetupRafflerServices.factory('authService', ['$window',
-		function($window) {
+	meetupRafflerServices.factory('authService', ['$window', '$location', 'configService',
+		function($window, $location, configService) {
 			//var currentUser = null;
 			var authorized = false;
 			var initialState = true;
@@ -70,7 +70,11 @@ define([
 					return initialState;
 				},
 				login: function() {
-					$window.location.href = "https://secure.meetup.com/oauth2/authorize?client_id=m61ttgfkb90dvso8choqa8sltr&response_type=token&redirect_uri=http%3A%2F%2Flocalhost:8001%2Fapp%2Findex.html%23%2Flogin";
+					if (configService.useMeetupWebServices()) {
+						$window.location.href = "https://secure.meetup.com/oauth2/authorize?client_id=m61ttgfkb90dvso8choqa8sltr&response_type=token&redirect_uri=http%3A%2F%2Flocalhost:8001%2Fapp%2Findex.html%23%2Flogin";
+					} else {
+						$location.url("/login#expires_in=3600&token_type=bearer&access_token=offline");
+					}
 				},
 				completeLogin: function(access_token) {
 					hydrateCredentials(access_token);
