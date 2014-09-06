@@ -51,9 +51,10 @@ define([
 
 			$rootScope.configService = configService;
 
-			// *****
+			// Instantiate and initialize a notification manager
+			$rootScope.Notifier = new NotificationManager($rootScope);
+
 			// Initialize authentication
-			// *****
 			$rootScope.authService = authService;
 
 			$rootScope.$watch('authService.authorized()', function(newValue, oldValue) {
@@ -71,17 +72,14 @@ define([
 					return;
 				}
 
-				// instantiate and initialize an auth notification manager
-				$rootScope.authNotifier = new NotificationManager($rootScope);
-
 				// when user logs in
 				if ($rootScope.authService.authorized()) {
-					$rootScope.authNotifier.notify('information', 'Successfully logged in!');
+					$rootScope.Notifier.notify('information', 'Successfully logged in!');
 				}
 
 				// when user logs out
 				if (!$rootScope.authService.authorized()) {
-					$rootScope.authNotifier.notify('information', 'Thanks for visiting. You have been signed out.');
+					$rootScope.Notifier.notify('information', 'Thanks for visiting. You have been signed out.');
 				}
 
 			}, true);
