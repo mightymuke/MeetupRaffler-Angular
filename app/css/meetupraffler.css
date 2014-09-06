@@ -228,7 +228,7 @@ div.member-listing {
   color: white;
   text-align: center;
   font-weight: bold;
-  position: absolute;
+  position: fixed;
   top: 50px;
   left: 0;
   width: 100%;
