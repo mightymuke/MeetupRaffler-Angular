@@ -8,9 +8,12 @@ define([
 		var memberIsValidForPrize = function(member_id, prize) {
 			console.log("checking winner " + member_id + " for eligibility to " + prize + " prize");
 
-			var result = $.grep(previousWinners[prize], function(element, index) {
-				return element.member.member_id === member_id;
-			});
+			var result = [];
+			if (previousWinners[prize]) {
+				var result = $.grep(previousWinners[prize], function(element, index) {
+					return element.member.member_id === member_id;
+				});
+			}
 			return result.length == 0;
 		}
 
@@ -35,6 +38,9 @@ define([
 			}
 
 			if (memberFound) {
+				if (!previousWinners[selectedPrizeId]) {
+					previousWinners[selectedPrizeId] = [];
+				}
 				previousWinners[selectedPrizeId].push({'member': winningMember});
 				app.displayWinner(winningMember, selectedPrizeText);
 			} else {
