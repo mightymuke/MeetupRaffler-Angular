@@ -13,7 +13,6 @@ define([
 
 			}
 
-
 			if (!configService.useMeetupWebServices()) {
 				require([
 					"json!../data/meetups.json"
