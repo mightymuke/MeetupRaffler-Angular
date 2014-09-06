@@ -28,7 +28,7 @@
                 "highres_link": "http://photos4.meetupstatic.com/photos/event/9/9/e/0/highres_395019392.jpeg",
                 "photo_id": 395019392,
                 "photo_link": "http://photos2.meetupstatic.com/photos/event/9/9/e/0/600_395019392.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_395019392.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_395019392.jpeg"
             },
             "id": 120985,
             "join_mode": "open",
@@ -88,7 +88,7 @@
                 "highres_link": "http://photos3.meetupstatic.com/photos/event/5/e/b/2/highres_109344242.jpeg",
                 "photo_id": 109344242,
                 "photo_link": "http://photos3.meetupstatic.com/photos/event/5/e/b/2/600_109344242.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_109344242.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_109344242.jpeg"
             },
             "id": 163896,
             "join_mode": "approval",
@@ -158,7 +158,7 @@
                 "highres_link": "http://photos2.meetupstatic.com/photos/event/d/9/f/0/highres_286795792.jpeg",
                 "photo_id": 286795792,
                 "photo_link": "http://photos4.meetupstatic.com/photos/event/d/9/f/0/600_286795792.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_286795792.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_286795792.jpeg"
             },
             "id": 432151,
             "join_mode": "open",
@@ -198,7 +198,7 @@
                 "highres_link": "http://photos3.meetupstatic.com/photos/event/d/f/b/e/highres_4737278.jpeg",
                 "photo_id": 4737278,
                 "photo_link": "http://photos3.meetupstatic.com/photos/event/d/f/b/e/600_4737278.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_4737278.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_4737278.jpeg"
             },
             "id": 432926,
             "join_mode": "open",
@@ -268,7 +268,7 @@
                 "highres_link": "http://photos1.meetupstatic.com/photos/event/f/2/highres_205860242.jpeg",
                 "photo_id": 205860242,
                 "photo_link": "http://photos1.meetupstatic.com/photos/event/f/2/600_205860242.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_205860242.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_205860242.jpeg"
             },
             "id": 1521092,
             "join_mode": "open",
@@ -343,7 +343,7 @@
                 "highres_link": "http://photos2.meetupstatic.com/photos/event/7/4/f/0/highres_16949936.jpeg",
                 "photo_id": 16949936,
                 "photo_link": "http://photos2.meetupstatic.com/photos/event/7/4/f/0/600_16949936.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_16949936.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_16949936.jpeg"
             },
             "id": 1685610,
             "join_mode": "open",
@@ -408,7 +408,7 @@
                 "highres_link": "http://photos3.meetupstatic.com/photos/event/d/b/5/8/highres_249656152.jpeg",
                 "photo_id": 249656152,
                 "photo_link": "http://photos3.meetupstatic.com/photos/event/d/b/5/8/600_249656152.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_249656152.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_249656152.jpeg"
             },
             "id": 1787135,
             "join_mode": "open",
@@ -483,7 +483,7 @@
                 "highres_link": "http://photos4.meetupstatic.com/photos/event/e/0/4/4/highres_62817412.jpeg",
                 "photo_id": 62817412,
                 "photo_link": "http://photos2.meetupstatic.com/photos/event/e/0/4/4/600_62817412.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_62817412.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_62817412.jpeg"
             },
             "id": 1920061,
             "join_mode": "open",
@@ -573,7 +573,7 @@
                 "highres_link": "http://photos3.meetupstatic.com/photos/event/2/1/3/6/highres_61388502.jpeg",
                 "photo_id": 61388502,
                 "photo_link": "http://photos3.meetupstatic.com/photos/event/2/1/3/6/600_61388502.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_61388502.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_61388502.jpeg"
             },
             "id": 2241771,
             "join_mode": "open",
@@ -628,7 +628,7 @@
                 "highres_link": "http://photos4.meetupstatic.com/photos/event/1/3/7/6/highres_101284982.jpeg",
                 "photo_id": 101284982,
                 "photo_link": "http://photos4.meetupstatic.com/photos/event/1/3/7/6/600_101284982.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_101284982.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_101284982.jpeg"
             },
             "id": 3473832,
             "join_mode": "approval",
@@ -693,7 +693,7 @@
                 "highres_link": "http://photos3.meetupstatic.com/photos/event/4/9/b/8/highres_167238872.jpeg",
                 "photo_id": 167238872,
                 "photo_link": "http://photos3.meetupstatic.com/photos/event/4/9/b/8/600_167238872.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_167238872.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_167238872.jpeg"
             },
             "id": 5283932,
             "join_mode": "open",
@@ -758,7 +758,7 @@
                 "highres_link": "http://photos1.meetupstatic.com/photos/event/b/4/c/0/highres_173026272.jpeg",
                 "photo_id": 173026272,
                 "photo_link": "http://photos1.meetupstatic.com/photos/event/b/4/c/0/600_173026272.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_173026272.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_173026272.jpeg"
             },
             "id": 5337282,
             "join_mode": "open",
@@ -818,7 +818,7 @@
                 "highres_link": "http://photos4.meetupstatic.com/photos/event/d/8/2/e/highres_392455342.jpeg",
                 "photo_id": 392455342,
                 "photo_link": "http://photos4.meetupstatic.com/photos/event/d/8/2/e/600_392455342.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_392455342.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_392455342.jpeg"
             },
             "id": 7105772,
             "join_mode": "open",
@@ -918,7 +918,7 @@
                 "highres_link": "http://photos1.meetupstatic.com/photos/event/5/8/7/2/highres_213322642.jpeg",
                 "photo_id": 213322642,
                 "photo_link": "http://photos1.meetupstatic.com/photos/event/5/8/7/2/600_213322642.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_213322642.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_213322642.jpeg"
             },
             "id": 7573112,
             "join_mode": "open",
@@ -988,7 +988,7 @@
                 "highres_link": "http://photos4.meetupstatic.com/photos/event/c/4/e/c/highres_387350412.jpeg",
                 "photo_id": 387350412,
                 "photo_link": "http://photos4.meetupstatic.com/photos/event/c/4/e/c/600_387350412.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_387350412.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_387350412.jpeg"
             },
             "id": 8479902,
             "join_mode": "open",
@@ -1379,7 +1379,7 @@
                 "highres_link": "http://photos2.meetupstatic.com/photos/event/6/c/0/e/highres_330507662.jpeg",
                 "photo_id": 330507662,
                 "photo_link": "http://photos4.meetupstatic.com/photos/event/6/c/0/e/600_330507662.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_330507662.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_330507662.jpeg"
             },
             "id": 10952232,
             "join_mode": "approval",
@@ -1489,7 +1489,7 @@
                 "highres_link": "http://photos2.meetupstatic.com/photos/event/a/3/e/0/highres_397781952.jpeg",
                 "photo_id": 397781952,
                 "photo_link": "http://photos4.meetupstatic.com/photos/event/a/3/e/0/600_397781952.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_397781952.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_397781952.jpeg"
             },
             "id": 12784912,
             "join_mode": "open",
@@ -1673,7 +1673,7 @@
                 "highres_link": "http://photos3.meetupstatic.com/photos/event/2/3/7/0/highres_363189072.jpeg",
                 "photo_id": 363189072,
                 "photo_link": "http://photos3.meetupstatic.com/photos/event/2/3/7/0/600_363189072.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_363189072.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_363189072.jpeg"
             },
             "id": 14415512,
             "join_mode": "open",
@@ -1748,7 +1748,7 @@
                 "highres_link": "http://photos1.meetupstatic.com/photos/event/4/a/b/2/highres_364459122.jpeg",
                 "photo_id": 364459122,
                 "photo_link": "http://photos1.meetupstatic.com/photos/event/4/a/b/2/600_364459122.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_364459122.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_364459122.jpeg"
             },
             "id": 14517702,
             "join_mode": "open",
@@ -1932,7 +1932,7 @@
                 "highres_link": "http://photos1.meetupstatic.com/photos/event/4/e/4/highres_391201252.jpeg",
                 "photo_id": 391201252,
                 "photo_link": "http://photos1.meetupstatic.com/photos/event/4/e/4/600_391201252.jpeg",
-                "thumb_link": "http://localhost:8001/app/data/images/meetups/thumb_391201252.jpeg"
+                "thumb_link": "/app/data/images/meetups/thumb_391201252.jpeg"
             },
             "id": 15996642,
             "join_mode": "open",
