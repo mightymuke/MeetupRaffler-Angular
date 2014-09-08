@@ -62,7 +62,7 @@ define([
 						})
 					.then(
 						function(eventRsvps) {
-							$scope.rsvps = explodeTheGuests(eventRsvps.results);
+							$scope.rsvps = app.explodeTheGuests(eventRsvps.results);
 						},
 						function(response) {
 							console.log(response);
