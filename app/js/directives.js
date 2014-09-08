@@ -4,16 +4,43 @@ define([
 	'use strict';
 
 	return angular.module('meetupRafflerDirectives', [])
+
 		.directive('appVersion', ['version', function(version) {
-			return function(scope, elm, attrs) {
-				elm.text(version);
+			return function(scope, element, attrs) {
+				element.text(version);
 			};
 		}])
+
+		.directive('matchRoute', ['$location', function($location) {
+			return {
+				restrict: 'A',
+
+				link: function(scope, element, attrs, controller) {
+					// Watch for the $location
+					scope.$watch(function() {
+						return $location.path();
+					}, function(newValue, oldValue) {
+						var activeClass = attrs.activeClass;
+						if (!activeClass) {
+							activeClass = 'active';
+						}
+						var pattern = attrs.matchRoute;
+						var regexp = new RegExp('^' + pattern + '$', ['i']);
+						if (regexp.test(newValue)) {
+							element.addClass(activeClass);
+						} else {
+							element.removeClass(activeClass);
+						}
+      				});
+    			}
+			};
+		}])
+
 		.directive('noty', function() {
 			return {
 				restrict:'A',
 
-				link: function (scope, element, attr) {
+				link: function (scope, element, attrs) {
 
 					// set notification (noty) defaults on global scope
 					var opts = {
